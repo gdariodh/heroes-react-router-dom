@@ -1,5 +1,5 @@
 const HeroesComponent = () => {
-    return (  );
+    return ( <p>heroes component</p> );
 }
  
 export default HeroesComponent;

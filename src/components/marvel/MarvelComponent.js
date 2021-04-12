@@ -1,5 +1,5 @@
 const MarvelComponent = () => {
-    return (  );
+    return ( <> <h1>Hola perra</h1> </>);
 }
  
 export default MarvelComponent;
