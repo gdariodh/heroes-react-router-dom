@@ -1,6 +1,11 @@
+// routing
+import AppRouter from './routers/AppRouter'
+
 const App = () => {
     return ( 
-        <h1>he</h1>
+        <>
+        <AppRouter/>
+        </>
      );
 }
  
