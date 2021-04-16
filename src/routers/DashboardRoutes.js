@@ -11,6 +11,7 @@ const DashboardRoutes = () => {
       {/* layout */}
       <Navbar />
       {/* routing */}
+      <div className="container mt-2">
       <Switch>
         <Route exact path="/marvel" component={MarvelComponent} />
         <Route exact path="/marvel:heroeId" component={HeroesComponent} />
@@ -18,6 +19,8 @@ const DashboardRoutes = () => {
         {/* Si no es ninguna de la anteriores rutas, redirect a marvel por defecto  */}
         <Redirect to="/marvel" />
       </Switch>
+      </div>
+     
     </>
   );
 };
