@@ -1,5 +1,7 @@
 const MarvelComponent = () => {
-    return ( <> <h1>Hola perra</h1> </>);
+    return ( 
+        <h3>Marvel component</h3>
+    );
 }
  
 export default MarvelComponent;
