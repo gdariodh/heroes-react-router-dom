@@ -22,6 +22,8 @@ const HeroesComponent = () => {
   const handleReturn = () => {
     // evita que si se abre desde otra ventana y no tiene una url anterior como /marvel o /dc
     // regrese al home, y no al buscador google
+
+    // si el historial es <=2 es pq no tiene url anterior
     if (history.length <= 2) {
       history.push("/");
     } else {
