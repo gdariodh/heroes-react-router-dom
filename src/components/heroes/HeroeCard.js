@@ -4,7 +4,6 @@ const HeroeCard = ({ heroe }) => {
   const {
     id,
     superhero,
-    publisher,
     alter_ego,
     first_appearance,
     characters,
@@ -26,7 +25,7 @@ const HeroeCard = ({ heroe }) => {
             <h5 className="card-title">{superhero}</h5>
             <p className="card-text">{alter_ego}</p>
             {
-                characters != alter_ego && (<p className="card-text">{characters}</p>)
+                characters !== alter_ego && (<p className="card-text">{characters}</p>)
             }
             <p className='card-text'>
                 <small className='text-muted'>
@@ -34,7 +33,8 @@ const HeroeCard = ({ heroe }) => {
                 </small>
             </p>
 
-            <Link to={`./hero/${id}`} className='btn btn-primary'>
+            {/* ruta personalizada de heroe por id */}
+            <Link to={`/heroe/${id}`} className='btn btn-primary'>
                Mas...
             </Link>
           </div>
