@@ -4,6 +4,7 @@
 // }
 
 // option2
+import { useMemo } from "react";
 import { Redirect, useHistory, useParams } from "react-router";
 import getHeroeById from "../../selectors/getHeroeById";
 // filters
@@ -14,7 +15,11 @@ const HeroesComponent = () => {
   // acceder al parametro id que se envio desde HeroeCard
   const { heroeId } = useParams();
 
-  const heroe = getHeroeById(heroeId);
+  // useMemo evita que se ejecute getHeroeById cada vez q se renderiza el component,
+  // asi solamente se ejecuta getHeroeById si heroeId es diferente al que estaba antes,
+  const heroe = useMemo(() => getHeroeById(heroeId), [heroeId]);
+
+  // option 1: const heroe = getHeroeById(heroeId); - sin useMemo
 
   // devuelve al home, <Redirect/> pq se tiene que devolver un component para renderizar en react
   if (!heroe) return <Redirect to="/" />;
