@@ -1,23 +1,40 @@
 import { useState } from "react";
+import { useHistory, useLocation } from "react-router";
 import { heroes } from "../../data/heroes";
 import getHeroeById from "../../selectors/getHeroeById";
 import HeroeCard from "../heroes/HeroeCard";
+// leer queryString de la url
+import queryString from "query-string";
 
 const SearchComponent = () => {
+  // react router dom
+  const history = useHistory();
+  const location = useLocation();
+
+  // leer queryString pasado desde el handleSubmit
+
+  // q = '' por default para que no de error si no hay
+  const {q = ''} = queryString.parse(location.search);
+
   const heroesFiltered = heroes;
-  
-  const [data, setData] = useState("")
-  const [heroe, setHeroe] = useState({})
-  
+
+  // search data input
+  const [data, setData] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    
-    if(!data) return alert("add a heroe")
+    e.preventDefault();
 
-    alert(data)
-    setData("")
-  }
+    if (!data) return alert("add a heroe");
+
+    // agregar queryString con la data ingresada a /search -> /search?q=data
+    history.push(`?q=${data}`);
+
+    // pasar varios queryString history.push(`?q=${data}&heroe2=batman&heroe3=robin`)
+
+    // queryString es un parametro que quedaria como "/search?q=3213" por ejemplo.
+
+    setData("");
+  };
 
   return (
     <div>
@@ -27,15 +44,13 @@ const SearchComponent = () => {
         <div className="col-5">
           <h4>Search Form</h4>
           <hr />
-          <form
-          onSubmit={handleSubmit}
-          >
+          <form onSubmit={handleSubmit}>
             <input
               placeholder="Find your heroe"
               className="form-control"
               type="text"
               value={data}
-              onChange={e => setData(e.target.value)}
+              onChange={(e) => setData(e.target.value)}
             />
             <input
               type="submit"
