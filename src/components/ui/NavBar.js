@@ -1,6 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
+// context
+import { useContext } from "react";
+import { types } from "../../types";
+import AuthContext from "../../auth/authContext";
 
 const Navbar = () => {
+  const { dispatch } = useContext(AuthContext);
+
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">
@@ -43,6 +49,11 @@ const Navbar = () => {
           <NavLink
             activeClassName="active"
             className="nav-item nav-link"
+            onClick={() =>
+              dispatch({
+                type: types.logout,
+              })
+            }
             exact
             to="/login"
           >

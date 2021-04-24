@@ -1,7 +1,20 @@
+import { useContext } from "react";
+import AuthContext from "../../auth/authContext";
+import { types } from "../../types";
+
 const LoginComponent = ({ history }) => {
+  const { dispatch } = useContext(AuthContext);
+
   const handleClick = () => {
+    dispatch({
+      type: types.login,
+      payload: {
+        name: "Gabi",
+      },
+    });
+
     // push & replace -> redirects spa
-    // history.push('/') -> no borra el historial 
+    // history.push('/') -> no borra el historial
     history.replace("/"); // borra el historial, si le dan back a la url anterior no podran acceder
   };
 
@@ -11,7 +24,7 @@ const LoginComponent = ({ history }) => {
       <hr />
 
       <button onClick={handleClick} className="btn btn-primary">
-        xd
+        login
       </button>
     </div>
   );
