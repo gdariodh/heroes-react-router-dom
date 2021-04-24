@@ -16,8 +16,9 @@ const App = () => {
 
   return (
     <>
-      <AuthContext.Provider value={{ user, dispatch }}></AuthContext.Provider>
+      <AuthContext.Provider value={{ user, dispatch }}>
       <AppRouter />
+      </AuthContext.Provider>
     </>
   );
 };
