@@ -5,7 +5,7 @@ import { types } from "../../types";
 import AuthContext from "../../auth/authContext";
 
 const Navbar = () => {
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch, user } = useContext(AuthContext);
 
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -46,6 +46,7 @@ const Navbar = () => {
 
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul className="navbar-nav ml-auto">
+          {user.name && <span className="nav-item nav-link text-info">{user.name}</span>}
           <NavLink
             activeClassName="active"
             className="nav-item nav-link"
