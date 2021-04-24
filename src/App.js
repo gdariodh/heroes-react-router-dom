@@ -12,6 +12,8 @@ const init = () => {
 
 const App = () => {
   // conexion context con reducer
+
+  // user = state
   const [user, dispatch] = useReducer(AuthReducer, {}, init);
 
   return (
