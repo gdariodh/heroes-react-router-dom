@@ -61,7 +61,6 @@ const Navbar = () => {
           )}
           <button
             onClick={handleLogout}
-            activeClassName="active"
             className="nav-item nav-link btn"
           >
             Logout
