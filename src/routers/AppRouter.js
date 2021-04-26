@@ -1,6 +1,6 @@
 // AppRouter es el fichero main del routing del spa - este es que se manda al App.js
 import { useContext } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import LoginComponent from "../components/login/LoginComponent";
 import DashboardRoutes from "./DashboardRoutes";
 // retorna rutas privadas si esta auth
