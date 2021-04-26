@@ -6,6 +6,10 @@ const LoginComponent = ({ history }) => {
   const { dispatch } = useContext(AuthContext);
 
   const handleClick = () => {
+    // comprobar si hay un lastPath antes del Logout
+    const lastPath = localStorage.getItem("lastPath") || "/";
+    // si no hay, que asigne "/" q es el home de la app
+
     dispatch({
       type: types.login,
       payload: {
@@ -15,7 +19,7 @@ const LoginComponent = ({ history }) => {
 
     // push & replace -> redirects spa
     // history.push('/') -> no borra el historial
-    history.replace("/"); // borra el historial, si le dan back a la url anterior no podran acceder
+    history.replace(lastPath); // borra el historial, si le dan back a la url anterior no podran acceder
   };
 
   return (
