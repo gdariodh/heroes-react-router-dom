@@ -6,6 +6,8 @@ import DashboardRoutes from "./DashboardRoutes";
 // retorna rutas privadas si esta auth
 import PrivateRoute from "./PrivateRoute";
 import AuthContext from "../auth/authContext";
+// rutas para user NO AUTENTICADOS
+import PublicRoute from "./PublicRoute";
 
 // routing main
 const AppRouter = () => {
@@ -16,9 +18,18 @@ const AppRouter = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/login" component={LoginComponent} />
+        <PublicRoute
+          exact
+          isAuth={isAuth}
+          path="/login"
+          component={LoginComponent}
+        />
         {/* routing children */}
-        <PrivateRoute path="/" isAuth={isAuth} component={DashboardRoutes} />
+        <PrivateRoute 
+        path="/" 
+        isAuth={isAuth} 
+        component={DashboardRoutes} 
+        />
       </Switch>
     </Router>
   );
